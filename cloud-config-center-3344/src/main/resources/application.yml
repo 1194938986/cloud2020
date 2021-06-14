@@ -7,11 +7,35 @@ spring:
     config:
       server:
         git:
-          uri: git@github.com:1194938986/sprincloud-config.git
+          uri: https://gitee.com/zeng_qinhui/sprincloud-config.git
           search-paths:
             - springcloud-config
-      label: main
+          username: 1194938986@qq.com
+          password: uulBD78LrFXs
+#          uri: https://github.com/1194938986/sprincloud-config.git
+#          search-paths:
+#            - springcloud-config
+#          username: 1194938986@qq.com
+#          password: aA13542777061..
+      label: master
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
 eureka:
   client:
     service-url:
       defaultZone:  http://localhost:7001/eureka
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"
